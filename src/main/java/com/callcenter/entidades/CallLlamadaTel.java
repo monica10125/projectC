@@ -37,7 +37,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "CallLlamadaTel.findAll", query = "SELECT c FROM CallLlamadaTel c")
     , @NamedQuery(name = "CallLlamadaTel.findBySecuenciaLlamada", query = "SELECT c FROM CallLlamadaTel c WHERE c.secuenciaLlamada = :secuenciaLlamada")
     , @NamedQuery(name = "CallLlamadaTel.findByFechaIngresoLlamada", query = "SELECT c FROM CallLlamadaTel c WHERE c.fechaIngresoLlamada = :fechaIngresoLlamada")
-    , @NamedQuery(name = "CallLlamadaTel.findByFechaTerminancionLlamada", query = "SELECT c FROM CallLlamadaTel c WHERE c.fechaTerminancionLlamada = :fechaTerminancionLlamada")
     , @NamedQuery(name = "CallLlamadaTel.findByEstadoLlamada", query = "SELECT c FROM CallLlamadaTel c WHERE c.estadoLlamada = :estadoLlamada")})
 public class CallLlamadaTel implements Serializable {
 
@@ -52,9 +51,6 @@ public class CallLlamadaTel implements Serializable {
     @Column(name = "fecha_ingreso_llamada")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaIngresoLlamada;
-    @Column(name = "fecha_terminancion_llamada")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaTerminancionLlamada;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2)
@@ -90,14 +86,6 @@ public class CallLlamadaTel implements Serializable {
 
     public void setFechaIngresoLlamada(Date fechaIngresoLlamada) {
         this.fechaIngresoLlamada = fechaIngresoLlamada;
-    }
-
-    public Date getFechaTerminancionLlamada() {
-        return fechaTerminancionLlamada;
-    }
-
-    public void setFechaTerminancionLlamada(Date fechaTerminancionLlamada) {
-        this.fechaTerminancionLlamada = fechaTerminancionLlamada;
     }
 
     public String getEstadoLlamada() {
